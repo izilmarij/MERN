@@ -1,0 +1,132 @@
+
+main{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+.App {
+  text-align: center;
+  background-color: rgb(87, 132, 209);
+}
+
+.App-header {
+  /* background-color: #282c34; */
+  /* max-height: 100vh; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: calc(50px + 2vmin);
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  color: #041941;
+
+}
+
+.header-text:hover {
+  background-color: #53668b;
+}
+
+.login, .signup{
+  width: 40%;
+  height:50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+form{
+  height:55vh;
+  display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex-grow: 1;
+    padding-bottom: 1rem;
+}
+
+input[type="text"],
+input[type="password"],
+button,
+textarea {
+  font-family: 'Nunito', sans-serif;
+  font-size: 22px;
+  padding: 0.25rem;
+  border-radius: 0.5rem;
+}
+button{
+  background-color:rgb(219, 228, 246);
+}
+
+
+/* .admin-signup, .user-signup, .reporter-signup{
+  margin-bottom:4%;
+} */
+
+.App-link {
+  color: #61dafb;
+}
+
+.reporter{
+  height:80%;
+}
+
+.news-container{
+  display: flex;
+  flex-direction: column;
+  justify-content:space-evenly;
+
+  /* align-items: flex-en; */
+}
+
+.news-div{
+  border-style:solid;
+  background-color: #f0f4fa;
+  border-width: 2px;
+  border-radius: 15px;
+  border-color:hsl(219, 88%, 14%);
+  padding-left: 6px;
+  padding-bottom: 2px;
+  margin-bottom: 3px;
+}
+
+.comment-flex{
+  width: 50%;
+  display:flex;
+  justify-content:start;
+  gap:3%;
+}
+.news-flex {
+
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3px;
+  gap:3%;
+
+}
+
+li{
+  list-style: none;
+}
+
+.filter-form{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: max-content;
+
+}
+select{
+  background-color:#f0f4fa;
+  border-style: solid;
+  border-radius: 5px;
+  font-family: 'Nunito', sans-serif;}
+
+  
+
+/* .login-button:hover,
+.signup-button:hover {
+  box-shadow: 0 0 20px 10px #2b3a58;
+}  */
+
+
