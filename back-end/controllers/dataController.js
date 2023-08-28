@@ -26,6 +26,21 @@ exports.getAllData = catchAsync(async (req, res) => {
   }
 });
 
+exports.getAllDataReporter = catchAsync(async (req, res) => {
+  //console.log("Req.headers is ", req.headers.name);
+
+  const data_ = await Data.find({
+    poster: req.headers.name,
+  });
+
+  res.status(200).json({
+    status: "success",
+    data: {
+      data_,
+    },
+  });
+});
+
 exports.createData = catchAsync(async (req, res) => {
   // console.log("In create data... :");
   // console.log(req.body.body.poster);

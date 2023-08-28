@@ -55,6 +55,7 @@ textarea {
 }
 button{
   background-color:rgb(219, 228, 246);
+  margin-top:5px;
 }
 
 
@@ -119,8 +120,13 @@ li{
 select{
   background-color:#f0f4fa;
   border-style: solid;
-  border-radius: 5px;
-  font-family: 'Nunito', sans-serif;}
+  font-family: 'Nunito', sans-serif;
+  width:22%;
+  height:37px;
+  border-width: 2px;
+  border-radius: 8px;
+  border-color: hsl(219, 88%, 14%);
+}
 
   
 

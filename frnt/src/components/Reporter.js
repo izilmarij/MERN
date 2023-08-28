@@ -2,11 +2,13 @@ import React from "react";
 import axios from "../api/axios";
 import jwt_decode from "jwt-decode";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import AddNewsForm from "./AddNewsForm";
 
 export default function Reporter() {
   const token = localStorage.getItem("token");
   const decoded = jwt_decode(token);
+  const navigate = useNavigate();
 
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -27,13 +29,16 @@ export default function Reporter() {
   const getNews = async () => {
     try {
       setIsLoading(true);
-      const res = await axios.get("http://localhost:5000/app/v1/fetch", {
-        headers: {
-          authorization: `Bearer ${token}`,
-          name: `${decoded.name}`,
-          role: `${decoded.role}`,
-        },
-      });
+      const res = await axios.get(
+        "http://localhost:5000/app/v1/fetchreporter",
+        {
+          headers: {
+            authorization: `Bearer ${token}`,
+            name: `${decoded.name}`,
+            role: `${decoded.role}`,
+          },
+        }
+      );
 
       // console.log("Data received from server...", res.data.data);
       setData(res.data.data.data_);
@@ -295,6 +300,7 @@ export default function Reporter() {
           handleCancel={handleCancel}
         />
       )}
+      <button onClick={() => navigate("/login")}>Logout</button>
     </div>
   );
 }

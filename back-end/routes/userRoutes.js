@@ -13,7 +13,9 @@ router.post("/login", authController.login);
 router.route("/fetch").get(authController.protect, dataController.getAllData);
 router.route("/create").post(authController.protect, dataController.createData);
 
-// router.route("/fetch/:id").get(dataController.getData);
+router
+  .route("/fetchreporter")
+  .get(authController.protect, dataController.getAllDataReporter);
 
 router
   .route("/update/:id")
