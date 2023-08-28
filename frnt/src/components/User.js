@@ -4,6 +4,7 @@ import jwt_decode from "jwt-decode";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import UpdateCommentForm from "./UpdateCommentForm";
+import WeatherWidget from "./WeatherWidget";
 
 export default function Reporter() {
   const token = localStorage.getItem("token");
@@ -276,11 +277,14 @@ export default function Reporter() {
     });
   };
 
+  // https://api.openweathermap.org/data/3.0/onecall?lat=34.0837&lon=74.7973&appid=76305b146c5d89ba32401179b8883d61
+  // http://api.weatherapi.com/v1
   return (
     <div className="user">
       <h1>
         Welcome, {decoded.name}, to {decoded.role}'s view!
       </h1>
+      <WeatherWidget />
       <form className="filter-form">
         <label htmlFor="category">Choose a News category:</label>
         <select
@@ -296,6 +300,7 @@ export default function Reporter() {
         </select>
       </form>
       <DispNews2 />
+
       <button onClick={() => navigate("/login")}>Logout</button>
     </div>
   );
