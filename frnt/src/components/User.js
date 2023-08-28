@@ -277,14 +277,14 @@ export default function Reporter() {
     });
   };
 
-  // https://api.openweathermap.org/data/3.0/onecall?lat=34.0837&lon=74.7973&appid=76305b146c5d89ba32401179b8883d61
-  // http://api.weatherapi.com/v1
   return (
     <div className="user">
       <h1>
         Welcome, {decoded.name}, to {decoded.role}'s view!
       </h1>
+      <hr />
       <WeatherWidget />
+      <hr />
       <form className="filter-form">
         <label htmlFor="category">Choose a News category:</label>
         <select
