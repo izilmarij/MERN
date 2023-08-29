@@ -269,12 +269,15 @@ export default function Reporter() {
                   <button onClick={() => deleteNews(item)}>Delete News</button>
                   <button
                     className="update-news"
-                    onClick={() => setUpdateNews(true)}
+                    onClick={() => {
+                      setCurrentPost(item);
+                      setUpdateNews(true);
+                    }}
                   >
                     Update News
                   </button>
                 </div>
-                {updateNewsButton && (
+                {currentPost._id === item._id && updateNewsButton && (
                   <UpdateNewsForm
                     updateNews={updateNews}
                     handleCancel={handleCancel}

@@ -66,7 +66,7 @@ exports.deleteData = (req, res, next) => {
   Data.findByIdAndDelete(req.params.id)
     .then((updatedPost) => {
       if (updatedPost) {
-        console.log("Updated Post:", updatedPost);
+        //console.log("Updated Post:", updatedPost);
       } else {
         console.log("Post not found.");
       }
@@ -90,7 +90,7 @@ exports.updateData = async (req, res, next) => {
   })
     .then((updatedPost) => {
       if (updatedPost) {
-        console.log("Updated Post:", updatedPost);
+        //console.log("Updated Post:", updatedPost);
       } else {
         console.log("Post not found.");
       }
