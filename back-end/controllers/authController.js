@@ -86,9 +86,10 @@ exports.protect = catchAsync(async (req, res, next) => {
     return next(new AppError("Invalid User", 401));
   }
   //3) Check if user still exists
-  const user = await User.findOne({ name: decoded.name }).select("+password");
-  if (!user || !(await user.correctPassword(password, user.password))) {
-    return next(new AppError("Incorrect name or password", 401));
+  const user = await User.findOne({ name: decoded.name });
+
+  if (!user) {
+    return next(new AppError("User not found ", 401));
   }
 
   next();

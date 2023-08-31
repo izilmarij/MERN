@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const userRouter = require("./routes/userRoutes");
+const globalErrorHandler = require("./controllers/errorController");
 
 const app = express();
 
@@ -17,5 +18,7 @@ app.all("*", (req, res) => {
     message: "Invalid URL",
   });
 });
+
+app.use(globalErrorHandler);
 
 module.exports = app;
