@@ -4,6 +4,7 @@ main{
   display: flex;
   justify-content: center;
 }
+
 .App {
   text-align: center;
   background-color: rgb(87, 132, 209);
@@ -13,19 +14,27 @@ main{
   /* background-color: #282c34; */
   /* max-height: 100vh; */
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-around;
   align-items: center;
-  justify-content: flex-start;
   font-size: calc(50px + 2vmin);
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   color: #041941;
 
 }
 
+
 .header-text:hover {
   background-color: #53668b;
 }
-
+.signout-button{
+  height:15%;
+  /* width:8%; */
+  border-radius: 80px;
+  position: absolute;
+  right:3%;
+  
+}
 .login, .signup{
   width: 40%;
   height:50%;

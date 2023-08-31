@@ -1,28 +1,36 @@
 import React from "react";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, Link, useNavigation } from "react-router-dom";
 import Layout from "./components/Layout";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
 import User from "./components/User";
 import Reporter from "./components/Reporter";
 import Admin from "./components/Admin";
+import { useNavigate } from "react-router-dom";
 
 import "./App.css";
 
 function App() {
-  const [loggedIn, setLoggedIn] = React.useState(() => false);
+  // const [loggedIn, setLoggedIn] = React.useState(() => false);
 
+  const navigate = useNavigate();
   return (
     <>
       <header className="App-header">
         <p className="header-text">
-          <Link to="/login">News A-Z</Link>
+          <Link to="/login">News A-Z </Link>
         </p>
-        {/* {loggedIn && (
-          <button className="signout-button" onClick={setLoggedIn(false)}>
-            <Link to="/login">SignOut</Link>
+        {localStorage.getItem("token") && (
+          <button
+            className="signout-button"
+            onClick={() => {
+              localStorage.removeItem("token");
+              navigate("/login");
+            }}
+          >
+            SignOut
           </button>
-        )} */}
+        )}
       </header>
 
       <Routes>

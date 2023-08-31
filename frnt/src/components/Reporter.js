@@ -2,13 +2,13 @@ import React from "react";
 import axios from "../api/axios";
 import jwt_decode from "jwt-decode";
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import AddNewsForm from "./AddNewsForm";
 
 export default function Reporter() {
   const token = localStorage.getItem("token");
   const decoded = jwt_decode(token);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   // props.setLoggedIn(true);
 
   const [data, setData] = useState([]);
@@ -297,9 +297,15 @@ export default function Reporter() {
           handleCancel={handleCancel}
         />
       )}
-      <button className="logout" onClick={() => navigate("/login")}>
+      {/* <button
+        className="logout"
+        onClick={() => {
+          localStorage.removeItem("token");
+          navigate("/login");
+        }}
+      >
         Logout
-      </button>
+      </button> */}
     </div>
   );
 }

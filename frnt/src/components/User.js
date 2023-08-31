@@ -2,14 +2,14 @@ import React from "react";
 import axios from "../api/axios";
 import jwt_decode from "jwt-decode";
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+//import { useNavigate } from "react-router-dom";
 import UpdateCommentForm from "./UpdateCommentForm";
 import WeatherWidget from "./WeatherWidget";
 
 export default function Reporter() {
   const token = localStorage.getItem("token");
   const decoded = jwt_decode(token);
-  const navigate = useNavigate();
+  //const navigate = useNavigate();
 
   const [data, setData] = useState(() => []);
   const [isLoading, setIsLoading] = useState(() => false);
@@ -301,7 +301,14 @@ export default function Reporter() {
       </form>
       <DispNews2 />
 
-      <button onClick={() => navigate("/login")}>Logout</button>
+      {/* <button
+        onClick={() => {
+          localStorage.removeItem("token");
+          navigate("/login");
+        }}
+      >
+        Logout
+      </button> */}
     </div>
   );
 }
