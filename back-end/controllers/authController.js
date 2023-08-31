@@ -11,8 +11,6 @@ const signToken = (id, role, name) => {
 };
 
 exports.signup = catchAsync(async (req, res, next) => {
-  //const newUser = await User.create(req.body);
-
   //console.log("Hit the signup API");
   const newUser = await User.create({
     name: req.body.name,
@@ -56,16 +54,6 @@ exports.login = catchAsync(async (req, res, next) => {
   if (!user || !(await user.correctPassword(password, user.password))) {
     return next(new AppError("Incorrect name or password", 401));
   }
-
-  /*
-    if (user) {
-        if (password === user.password) {
-            const token = jwt.sign({ id: newUser._id }, process.env.JWT_SECRET, {
-        expiresIn:process.env.JWT_EXPIRES_IN
-        });
-        }
-    }
-*/
 
   //if everything is ok, send token to client
 
