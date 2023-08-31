@@ -56,7 +56,7 @@ export default function Reporter() {
 
   useEffect(() => {
     getNews();
-    //console.log(currentPost);
+    // props.setLoggedIn(true);
   }, [filter]); //eslint-disable-line
 
   const postComment = async (event, item) => {

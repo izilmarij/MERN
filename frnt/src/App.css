@@ -131,6 +131,13 @@ select{
   
 hr{
   border: 3px solid hsl(220, 72%, 21%);}
+
+.logout{
+  /* position: absolute; */
+  margin-left:10px;
+  
+}
+
 /* .login-button:hover,
 .signup-button:hover {
   box-shadow: 0 0 20px 10px #2b3a58;

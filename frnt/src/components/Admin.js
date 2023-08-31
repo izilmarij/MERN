@@ -10,6 +10,7 @@ export default function Reporter() {
   const token = localStorage.getItem("token");
   const decoded = jwt_decode(token);
   const navigate = useNavigate();
+  // props.setLoggedIn(true);
 
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -205,6 +206,7 @@ export default function Reporter() {
         comments: "",
       });
       setPostComments(false);
+      setViewComments(false);
 
       getNews();
     } catch (err) {
@@ -238,14 +240,7 @@ export default function Reporter() {
 
       //   console.log("REsp received from server...");
       setIsLoading(false);
-      setFormState({
-        headline: "",
-        body: "",
-        category: "",
-        poster: `${decoded.user}`,
-        comments: "",
-      });
-      setDeleteComments(false);
+      setDeleteComments(true);
       setViewComments(false);
 
       //   console.log("REached here...");
