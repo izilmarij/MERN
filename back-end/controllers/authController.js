@@ -13,7 +13,7 @@ const signToken = (id, role, name) => {
 exports.signup = catchAsync(async (req, res, next) => {
   //console.log("Hit the signup API");
   const newUser = await User.create({
-    name: req.body.name,
+    name: req.body.name.toLowerCase(),
     password: req.body.password,
     passwordConfirm: req.body.reenter_password,
     role: "user",

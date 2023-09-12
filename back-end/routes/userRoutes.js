@@ -10,20 +10,30 @@ const router = express.Router();
 router.post("/signup", authController.signup);
 router.post("/login", authController.login);
 
-router.route("/fetch").get(authController.protect, dataController.getAllData);
-router.route("/create").post(authController.protect, dataController.createData);
+router
+  .route("/news")
+  .get(authController.protect, dataController.getAllData)
+  .post(authController.protect, dataController.createData);
+
+router
+  .route("/news/:id")
+  .patch(authController.protect, dataController.updateData)
+  .delete(authController.protect, dataController.deleteData);
+
+// router.route("/fetch").get(authController.protect, dataController.getAllData);
+// router.route("/create").post(authController.protect, dataController.createData);
 
 router
   .route("/fetchreporter")
   .get(authController.protect, dataController.getAllDataReporter);
 
-router
-  .route("/update/:id")
-  .patch(authController.protect, dataController.updateData);
+// router
+//   .route("/update/:id")
+//   .patch(authController.protect, dataController.updateData);
 
-router
-  .route("/delete/:id")
-  .delete(authController.protect, dataController.deleteData);
+// router
+//   .route("/delete/:id")
+//   .delete(authController.protect, dataController.deleteData);
 
 router
   .route("/addcomment/:id")

@@ -4,6 +4,7 @@ import jwt_decode from "jwt-decode";
 import { useState, useEffect } from "react";
 // import { useNavigate } from "react-router-dom";
 import AddNewsForm from "./AddNewsForm";
+import Layout from "./Layout";
 
 export default function Reporter() {
   const token = localStorage.getItem("token");
@@ -64,7 +65,7 @@ export default function Reporter() {
     try {
       setIsLoading(true);
       const res = await axios.post(
-        "http://localhost:5000/app/v1/create",
+        "http://localhost:5000/app/v1/news",
         {
           body: {
             headline: `${formState.headline}`,

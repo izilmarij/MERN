@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route, Link, useNavigation } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
 import Layout from "./components/Layout";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
@@ -34,14 +34,12 @@ function App() {
       </header>
 
       <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/login/user" element={<User />} />
-          <Route path="/login/reporter" element={<Reporter />} />
-          <Route path="/login/admin" element={<Admin />} />
-        </Route>
-
+        {/* <Route path="/" element={<Layout />} /> */}
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login/user" element={<User />} />
+        <Route path="/login/reporter" element={<Reporter />} />
+        <Route path="/login/admin" element={<Admin />} />
         <Route path="*" element={<p>404 Page Not Found!</p>} />
       </Routes>
     </>

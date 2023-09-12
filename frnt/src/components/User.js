@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 //import { useNavigate } from "react-router-dom";
 import UpdateCommentForm from "./UpdateCommentForm";
 import WeatherWidget from "./WeatherWidget";
+import Layout from "./Layout";
 
 export default function Reporter() {
   const token = localStorage.getItem("token");
@@ -34,7 +35,7 @@ export default function Reporter() {
     try {
       setIsLoading(true);
       const res = await axios.get(
-        `http://localhost:5000/app/v1/fetch/?filter=${filter}`,
+        `http://localhost:5000/app/v1/news/?filter=${filter}`,
         {
           headers: {
             authorization: `Bearer ${token}`,
@@ -279,6 +280,8 @@ export default function Reporter() {
 
   return (
     <div className="user">
+      <Layout />
+
       <h1>
         Welcome, {decoded.name}, to {decoded.role}'s view!
       </h1>

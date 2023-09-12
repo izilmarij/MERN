@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 // import { useNavigate } from "react-router-dom";
 import AddNewsForm from "./AddNewsForm";
 import UpdateNewsForm from "./UpdateNewsForm";
+import Layout from "./Layout";
 
 export default function Reporter() {
   const token = localStorage.getItem("token");
@@ -32,7 +33,7 @@ export default function Reporter() {
   const getNews = async () => {
     try {
       setIsLoading(true);
-      const res = await axios.get("http://localhost:5000/app/v1/fetch", {
+      const res = await axios.get("http://localhost:5000/app/v1/news", {
         headers: {
           authorization: `Bearer ${token}`,
           name: `${decoded.name}`,
@@ -63,7 +64,7 @@ export default function Reporter() {
     try {
       setIsLoading(true);
       const res = await axios.post(
-        "http://localhost:5000/app/v1/create",
+        "http://localhost:5000/app/v1/news",
         {
           body: {
             headline: `${formState.headline}`,
@@ -105,7 +106,7 @@ export default function Reporter() {
     try {
       setIsLoading(true);
       const res = await axios.delete(
-        `http://localhost:5000/app/v1/delete/${item._id}`,
+        `http://localhost:5000/app/v1/news/${item._id}`,
 
         {
           headers: {
@@ -137,7 +138,7 @@ export default function Reporter() {
     try {
       setIsLoading(true);
       const res = await axios.patch(
-        `http://localhost:5000/app/v1/update/${item._id}`,
+        `http://localhost:5000/app/v1/news/${item._id}`,
         {
           body: {
             headline,
@@ -371,7 +372,8 @@ export default function Reporter() {
   };
 
   return (
-    <div className="reporter">
+    <div className="admin">
+      <Layout />
       <h1>
         Welcome, {decoded.name}, to {decoded.role}'s view!
       </h1>
